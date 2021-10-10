@@ -1,0 +1,24 @@
+
+String editor, sed, is used for editing lines in a file or a stream; output is going to the standard output and can be re-directed to a new file.
+Syntax:
+sed [options] 'command1' [files]
+sed [options] -e 'command1' [-e command2 ...] [files]
+sed [options] -f script [files]
+Delete lines from 3 through 5 in file list.txt:
+sed '3,5d' list.txt
+Delete lines that contain “O” at the beginning of the line: sed '/^O/d' list.txt
+  
+Translate capital C,R,O into small c,r,o:
+sed 'y/CRO/cro/' list.txt
+Delete empty lines:
+sed '/^$/d' list.txt
+Replace string Oop with Wee for the first occurence on a line
+sed 's/Oop/Wee/' lsst.txt
+Remove ss string (replace with empty entry)for the first occurence on a line:
+sed 's/ss//' list.txt
+Remove ss string for all occurrences on a line:
+sed 's/ss//g' list.txt
+Substitute a single space for any number of spaces wherever they occur on the line:
+sed 's/ */ /g' list.txt
+Substitute underscore for any number of spaces wherever they occur on the line:
+sed 's/ */_/g' list.tx
