@@ -1,0 +1,13 @@
+
+The basic function of awk is to search files for lines or other text units containing one or more patterns. When a line matches one of the patterns, special actions are performed on that line. Display user names from /etc/passwd (field 1):
+1)
+awk -F: '{ print $1 }' /etc/passwd
+Where F is the field separator in the passwd file. The fields are separated by : Default field separator is a blank space. Awk scans the input file and splits each input line into fields.
+2)
+cat /etc/passwd | awk -F: '{ print $1 }'
+Display user names home directories and login shell (fields 1 and 7), and store them in a separate file, users.txt
+3)
+awk -F: '{ print $1, $6, $7 }' /etc/passwd > users.txt
+or
+cat /etc/passwd | awk -F: '{ print $1, $6, $7 }' > users.txt `
+Default field separator is empty space. To print users (field 1) from just created file users.txt: awk '{ print $1 }' users.txt
